@@ -1,0 +1,118 @@
+/*------------------------------------------------------------------
+[saleshill Stylesheet 3]
+
+Project:    saleshill
+Version:    1.0
+Created:    23 October 2018
+
+-------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------
+[Color codes]
+
+    Option Color 1 : #ff2832;
+
+    Option Color 2 : #365db5;
+
+    Option Color 3 : #38b04a;
+
+-------------------------------------------------------------------*/
+.manual, .automatic {
+	margin-top: 50px;
+	text-align: center;
+	margin-bottom: 30px;
+	line-height: 25px;
+}
+.manual .modal-header, .automatic .modal-header {
+	background-color: #374759;
+	color: #ffffff;
+	font-size: 16px;
+}
+.manual .btn.btn-default, .automatic .btn.btn-default {
+	color: #ffffff;
+	background-color: #ff1736;
+	margin-top: 20px;
+}
+.postadbox {
+	margin-top: 40px;
+	width: 50%;
+	height: auto;
+	padding: 0;
+	margin-left: auto;
+	margin-right: auto;
+	color: #374758;
+}
+.postadbox .modal-content {
+	box-shadow: none;
+}
+.postadbox .modal-content .modal-header {
+	background: #f5f5f5;
+	font-weight: 500;
+	font-size: 18px;
+	background-color: #134A6F;
+	color: #ffffff;
+	border-radius: 4px 4px 0 0;
+}
+.postadbox .modal-content .modal-footer {
+	background: #f5f5f5;
+	text-align: center;
+}
+.postadbox .modal-content .modal-header.thankyou {
+	background: #26b99a;
+}
+.postadbox .modal-content .form-info {
+	text-align: center;
+	font-size: 14px;
+	line-height: 25px;
+}
+
+@media only screen and (min-device-width:380px) and (max-device-width:580px) {
+	.postadbox {
+	width: 95%;
+	margin-right: auto;
+	margin-left: auto;
+	}
+}
+.postadbox .register-form.form-item {
+	width: 85%;
+	margin-left: auto;
+	margin-right: auto;
+	float: none;
+	border: none;
+}
+.postadbox .form-item.register-form::before{
+    content: normal;
+    
+}
+.postadbox .login-form.form-item {
+	float: none;
+	margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+.postadbox input[name="post"], .postadbox input[name="continue"] {
+	width: 100%;
+	border-radius: 4px;
+}
+.postadbox .btn.btn-submit, .postadbox input.btn.btn-sign {
+	border-radius: 4px;
+	text-transform: uppercase;
+}
+.postadbox .chosen-container.chosen-container-single {
+	border: 1px solid #ccc;
+	border-radius: 4px;
+}
+#post-desc {
+	width: 100%;
+	min-height: 150px;
+}
+.margin-top {
+	margin-top: 10px;
+}
+.form-control-file {
+    background: teal;
+    color: white;
+    display: block;
+    border-radius: 4px;
+    width: 100%;
+}

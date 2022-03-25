@@ -1,0 +1,92 @@
+/*------------------------------------------------------------------
+[saleshill Stylesheet 3]
+
+Project:    saleshill
+Version:    1.0
+Created:    23 October 2018
+
+-------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------
+[Color codes]
+
+    Option Color 1 : #ff2832;
+
+    Option Color 2 : #365db5;
+
+    Option Color 3 : #38b04a;
+
+-------------------------------------------------------------------*/
+.account-buyer {
+	margin-bottom: 10px;
+	margin-top: 20px;
+}
+.buyer-opts {
+	 
+}
+.buyer-bloc {
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	margin-bottom: 30px;
+}
+.buyer-bloc:hover {
+	background-color: #ddd;
+}
+.buyer-bloc i {
+	font-size: 50px;
+	display: inline-block;
+	color: #ff1736;
+}
+.buyer-bloc a {
+	display: inline-block;
+	vertical-align: text-bottom;
+	padding-left: 5px;
+}
+.buyer-nav a i {
+	color: #ff1736;
+	font-weight: 900;
+}
+.buyer-nav .panel-heading {
+	font-size: 16px;
+	font-weight: 600;
+}
+.buyer-main .form-item.register-form::before, .buyer-main-md .form-item.register-form::before{
+    content: normal;
+    
+}
+.buyer-main .panel-heading, .buyer-main-md .panel-heading {
+	font-size: 18px;
+	background-color: #134A6F;
+	color: #ffffff;
+}
+.buyer-main .panel {
+	width: 70%;
+	margin-right: auto;
+	margin-left: auto;
+	
+}
+.buyer-main input[name="submit"], .buyer-main-md input[name="submit"] {
+	width: 100%;
+}
+.buyer-main .panel .btn.btn-submit:hover, .buyer-main-md .panel .btn.btn-submit:hover {
+	background-color: #765654;
+}
+.buyer-main .btn.btn-submit, .buyer-main-md input.btn.btn-submit {
+	border-radius: 4px;
+	text-transform: uppercase;
+}
+.buyer-inf .panel-heading {
+	background-color: #47879e;
+	color: #ffffff;
+}
+.s-logo {
+	width: 50px;
+	height: 50px;
+	
+	border: 2px solid #CCC;
+	border-radius: 4px;
+}
+.buyer-main .newpanel {
+	width: 100% !important;
+}

@@ -1,0 +1,52 @@
+/*------------------------------------------------------------------
+[saleshill Stylesheet 3]
+
+Project:    saleshill
+Version:    1.0
+Created:    23 October 2018
+
+-------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------
+[Color codes]
+
+    Option Color 1 : #ff2832;
+
+    Option Color 2 : #365db5;
+
+    Option Color 3 : #38b04a;
+
+-------------------------------------------------------------------*/
+.more-box {
+	color: #374758;
+	font-size: 12px;
+}
+.category-head1 {
+	clear: both;
+	padding-top: 18px;
+}
+.columns
+{   
+    -moz-column-width: 11.5em; /* Firefox */
+    -webkit-column-width: 11.5em; /* webkit, Safari, Chrome */
+    column-width: 11.5em;
+}
+.columns ul
+{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+/* correct webkit/chrome uneven margin on the first column*/
+.columns ul li:first-child
+{
+    margin-top:0px;
+}
+.more-box h5 {
+	font-weight: 600;
+	color: #ff3826;
+}
+
+.more-box h6 {
+	font-weight: 600;
+}

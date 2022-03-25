@@ -1,0 +1,189 @@
+/*------------------------------------------------------------------
+[saleshill Stylesheet 3]
+
+Project:    saleshill
+Version:    1.0
+Created:    23 October 2018
+
+-------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------
+[Color codes]
+
+    Option Color 1 : #ff2832;
+
+    Option Color 2 : #365db5;
+
+    Option Color 3 : #38b04a;
+
+-------------------------------------------------------------------*/
+.panel-heading.dark {
+	color: #ffffff;
+	background-color: #113548;
+	font-size: 18px !important;
+	font-weight: normal;
+}
+.ad-form-wrap .ad-form {
+	width: 80%;
+	color: #374758;
+	margin-left: auto;
+	margin-right: auto;
+}
+@media only screen and (max-width: 480px) {
+	.ad-form-wrap .ad-form {
+		width: 100%;
+	}
+}
+.ad-form {
+	margin-top: 20px;
+}
+.ad-form .panel-heading {
+	font-size: 14px;
+	font-weight: bold;
+}
+.ad-form textarea {
+	width: 100%;
+}
+
+.ad-form input[type="text"], .ad-form input[type="url"] {
+    border: 1px solid #e6e6e6;
+    outline: none;
+    width: 100%;
+    height: 30px;
+    font-size: 13px;
+    line-height: 19px;
+    padding: 0 5px 0 14px;
+    color: #374758;
+}
+.ad-form #post-title {
+	height: 43px;
+}
+.ad-form input[type="checkbox"] + span {
+    font-size: 13px;
+    line-height: 19px;
+    position: relative;
+}
+.ad-form  input[type="checkbox"] {
+    display: none;
+}
+.ad-form input[type="checkbox"] + span::before {
+    content: '';
+    display: block;
+    float: left;
+    border: 1px solid #e9e9e9;
+    width: 15px;
+    height: 14px;
+    background: linear-gradient(#cccccc, #dddddd);
+    margin-top: 3px;
+    margin-right: 7px;
+}
+.ad-form label {
+    font-size: 14px;
+    line-height: 19px;
+    color: #333333;
+    text-align: left;
+    font-weight: 400;
+}
+.ad-form input[type="checkbox"] + span::after{
+    
+    font-family: "Font Awesome 5 Free";
+	content: "\f00c";
+    display: block;
+	font-weight: 900;
+    top: 0;
+    left: -21px;
+    position: absolute;
+    opacity: 0;
+    filter: alpha(opacity=0);
+	
+}
+.ad-form input[type="checkbox"]:checked + span::after{
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+.ad-form .btn-submit {
+	color: #ffffff;
+	background-color: #ff1736;
+}
+.ad-form .chosen-container.chosen-container-single {
+	border: 1px solid #ccc;
+	border-radius: 4px;
+}
+
+.images {
+  display: flex;
+  flex-wrap:  wrap;
+  margin-top: 20px;
+}
+.images .img,
+.images .pic {
+  flex-basis: 15%;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  height:150px
+}
+.images .img {
+  width: 150px;
+  height: 150px;
+  background-size: cover;
+  margin-right: 10px;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.images .img:nth-child(3n) {
+  margin-right: 0;
+}
+.images .img span {
+  display: none;
+  text-transform: capitalize;
+  z-index: 2;
+}
+.images .img::after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  transition: opacity .1s ease-in;
+  border-radius: 4px;
+  opacity: 0;
+  position: absolute;
+}
+.images .img:hover::after {
+  display: block;
+  background-color: #000;
+  opacity: .5;
+}
+.images .img:hover span {
+  display: block;
+  color: #fff;
+}
+.images .pic {
+  background-color: #F5F7FA;
+  align-self: center;
+  text-align: center;
+  padding: 65px 0;
+  text-transform: uppercase;
+  color: #848EA1;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 400px) {
+  
+  .images .img,
+  .images .pic {
+    flex-basis: 100%;
+    margin-right: 0;
+  }
+}
+
+
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}

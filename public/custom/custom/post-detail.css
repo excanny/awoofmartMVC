@@ -1,0 +1,147 @@
+/*------------------------------------------------------------------
+[saleshill Stylesheet 3]
+
+Project:    saleshill
+Version:    1.0
+Created:    23 October 2018
+
+-------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------
+[Color codes]
+
+    Option Color 1 : #ff2832;
+
+    Option Color 2 : #365db5;
+
+    Option Color 3 : #38b04a;
+
+-------------------------------------------------------------------*/
+.social a {
+  padding: 0 .5em;
+}
+.advert-banner {
+	padding: 10px;
+	margin-bottom: 10px;
+	width: 100%;
+	text-align: ;
+}
+
+/* --Clearfix */
+.cf:before,
+.cf:after {content:""; display:table;}
+.cf:after {clear:both;}
+.cf {zoom:1;}
+
+.toggle { margin: 2px 0 0 14px; float: left; border-radius: 6px; -moz-border-radius: 6px; -webkit-border-radius: 6px; }
+.toggle li { float: left; }
+.toggle li a {width: 50px; padding: 6px 0; text-align: center; display: block; text-shadow: 1px 1px 0 #fff; font-size: 12px; font-weight: 600; color: #666; -webkit-border-radius: 0 4px 4px 0; -moz-border-radius: 0 4px 4px 0; -o-border-radius: 0 4px 4px 0; border-radius: 0 4px 4px 0; 
+
+background: #ffffff; /* Old browsers */
+background: -moz-linear-gradient(top, #ffffff 0%, #ededed 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#ededed)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #ffffff 0%,#ededed 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #ffffff 0%,#ededed 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #ffffff 0%,#ededed 100%); /* IE10+ */
+background: linear-gradient(top, #ffffff 0%,#ededed 100%); /* W3C */
+
+box-shadow: inset 1px 1px 0 #fff, inset -1px -1px 0 #fff;
+-moz-box-shadow: inset 1px 1px 0 #fff, inset -1px -1px 0 #fff;
+-webkit-box-shadow: inset 1px 1px 0 #fff, inset -1px -1px 0 #fff;
+
+}
+.toggle li:first-child a {-webkit-border-radius: 4px 0 0 4px; -moz-border-radius: 4px 0 0 4px; -o-border-radius: 4px 0 0 4px; border-radius: 4px 0 0 4px;}
+.toggle li a:hover { background: #ededed; color: #222; }
+.toggle li a.active { background: #c8e0f3; color: #325874; cursor: default; box-shadow: inset 0 0 3px rgba(0,0,0,0.4); -moz-box-shadow: inset 0 0 3px rgba(0,0,0,0.4); -webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.4); }
+
+  
+.slider { margin: 50px 0 10px!important;}
+#carousel li {margin-right: 5px;}
+#carousel img {display: block; opacity: .5; cursor: pointer;}
+#carousel img:hover {opacity: 1;}
+#carousel .flex-active-slide img {opacity: 1; cursor: default;}
+
+.flexslider {
+	margin: 0 !important;
+}
+/*****************************************/
+
+#seller-map {
+	padding-top: 10px;
+}
+#map-dir {
+	padding: 10px;
+	text-align: center;
+	margin-top: 15px;
+}
+.aux-info {
+	
+}
+
+.aux-info .page-header{
+	border-bottom: 1px solid #374759;
+}
+.page-header h4 {
+	font-size: 20px;
+	color: #374759;
+	font-weight: 600;
+}
+.price-old {
+  color: #888;
+  text-decoration: line-through;
+}
+.aux-info .sterling span.deal{
+	color: #2DBD08;
+	font-size: 16px;
+}
+.aux-info .panel-title {
+	font-size: 20px;
+	color: #374759;
+	font-weight: 600;
+}
+.page-info {
+	border-bottom: 1px solid #374759;
+	color: #374759;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+}
+.page-info a {
+	color: #ff1736;
+}
+.p-margin .media .media-body {
+	width: calc(100% - 50px);
+	font-weight: normal;
+}
+.p-margin small {
+	font-style:italic;
+	color: #CCC;
+}
+.p-margin .panel-title a:hover {
+	color: #ff1736;
+}
+.p-margin .media h4 {
+	border-bottom: 1px solid #CCC;
+	display: block;
+	padding-bottom: 5px;
+}
+.contact-seller {
+	font-size: 16px;
+	color: #374759;
+	font-weight: 500;
+}
+.disclaimer .panel-title {
+	font-size: 18px;
+	font-weight: 400;
+	color: #DC5E03;
+}
+.disclaimer {
+	font-weight: normal;
+}
+.panel-default.certified .panel-heading {
+	color: #3C8B05;
+	font-weight: 500;
+	font-size: 16px;
+}
+.page-info .alertme {
+	color: #3C8B05;
+}

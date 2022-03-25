@@ -1,0 +1,164 @@
+/*------------------------------------------------------------------
+[saleshill Stylesheet]
+
+Project:    saleshill
+Version:    1.0
+Created:    23 October 2018
+
+-------------------------------------------------------------------*/
+
+.category-div {
+	margin-bottom: 15px;
+}
+
+.category-head {
+	color: #6f0003;
+	font-size: 38px;
+	text-transform: uppercase;
+	font-weight: 600;
+	margin: 0;
+	padding: 0;
+}
+.cat-adwrap {
+	margin-top: 15px;
+}
+.cat-ads {
+	border: 2px solid #47879e;
+	border-radius: 4px;
+	padding: 10px;
+	height: 150px;
+}
+.cat-ads .imagetext {
+	height: 130px;
+}
+.cat-ads .imagead {
+	background-size: contain;
+	background-repeat: no-repeat;
+	height: 130px;
+    background-position-x: right;
+	
+}
+.cat-ads.imagead2 {
+	background-size: 40%;
+	background-repeat: no-repeat;
+    background-position-x: right;
+	 background-position-y: center;
+	
+}
+.ad1 .tags {
+	width: 40%;
+	background-color: #47879e;
+	color: #ffffff;
+	padding: 5px;
+	position: absolute;
+	left: -10px;
+	font-weight: bold;
+}
+.ad1 .tags::after {
+	content: "";
+    width: 0;
+    height: 0;
+    border-top: 14px solid #47879e;
+    border-bottom: 14px solid #47879e;
+    border-right: 8px solid #ffffff;
+    position: absolute;
+    top: 0;
+	right: 0;
+}
+.ad2 .tags {
+	width: 60%;
+	background-color: #47879e;
+	color: #ffffff;
+	padding: 5px;
+	position: absolute;
+	left: -10px;
+	font-weight: bold;
+}
+.ad2 .tags::after {
+	content: "";
+    width: 0;
+    height: 0;
+    border-top: 14px solid #47879e;
+    border-bottom: 14px solid #47879e;
+    border-right: 8px solid #ffffff;
+    position: absolute;
+    top: 0;
+	right: 0;
+}
+.imagetext span {
+	display: block;
+	line-height: 20px;
+	font-weight: bold;
+	color: #47879e;
+}
+.imagetext-short span {
+	display: block;
+	line-height: 20px;
+	font-weight: bold;
+	color: #47879e;
+	width: 60%;
+}
+.cat-home-center {
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+.cm1 {
+	margin-top: 50px;
+}
+.cm2 {
+	border-bottom: 2px solid #47879e;
+	padding-bottom: 10px;
+}
+.cat-header {
+	border-bottom: 1px solid #6f0003;
+	margin-bottom: 15px;
+	margin-top: 15px;
+}
+.cat-header h4 {
+	text-transform: uppercase;
+	color: #6f0003;
+	font-size: 14px;
+	font-weight: 600;
+}
+.merchant-logo {
+	width: 100%;
+	padding: 5px;
+	height: 190px;
+	background-color: #fefefe;
+	text-align: center;
+	border: 1px solid #e6e6e6;
+}
+.merchant-logo img {
+	height: 90%;
+	border: 2px solid #479;
+	border-radius: 5px;
+	
+}
+.merchant-box-content {
+    height: 60px;
+    margin-top: -8px;
+    line-height: 17px;
+    padding: 20px;
+    border-top: 0;
+    border-right: 1px solid #e6e6e6;
+    border-bottom: 1px solid #e2e6e6;
+    border-left: 1px solid #e6e6e6;
+    text-align: center;
+    border-radius: 0 0 4px 4px;
+    background-color: #f9f9f9;
+}
+.merchant-box-content .merchant-box-title {
+    letter-spacing: 0px;
+    line-height: normal;
+    font-weight: 600;
+    color: rgb(51, 51, 51);
+    font-size: 18px;
+}
+.sp-ads {
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+.primary .menu-item.home-icon {
+	background-color: transparent !important;
+}

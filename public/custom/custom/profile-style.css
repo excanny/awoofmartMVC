@@ -1,0 +1,125 @@
+/*------------------------------------------------------------------
+[saleshill Stylesheet 3]
+
+Project:    saleshill
+Version:    1.0
+Created:    23 October 2018
+
+-------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------
+[Color codes]
+
+    Option Color 1 : #ff2832;
+
+    Option Color 2 : #365db5;
+
+    Option Color 3 : #38b04a;
+
+-------------------------------------------------------------------*/
+
+.profile-header-wrap {
+	border: #374759 solid 1px;
+	height: 250px;
+	position: relative;
+	margin-bottom: 10px;
+}
+.seller-ads {
+	border: #1E2951 solid 1px;
+	padding: 10px;
+}
+.profile-image {
+	height: 205px;
+	border: 1px solid #B868D2;
+	background: url(assets/images/asda-banner.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+	position: relative;
+	left: 0;
+	top: 0;
+	
+}
+.profile-logo {
+	height: 168px;
+	width: 168px;
+	border: 1px solid #ffffff;
+	background-color: #ffffff;
+	border-radius: 4px;
+	position: absolute;
+	bottom: 15px;
+	left: 20px;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, .07);
+	z-index: 1;
+}
+.image-holder {
+	width: 160px;
+	height: 160px;
+	margin: 4px auto;
+}
+.profile-title {
+	position: absolute;
+	bottom: 43px;
+	left: 0;
+	color: #ffffff;
+	width: calc(100% - 200px);
+	background: -moz-linear-gradient(top, rgba(255,255,255,0.46) 0%, rgba(255,255,255,0.46) 1%, rgba(153,153,153,0.61) 50%, rgba(0,0,0,0.77) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, rgba(255,255,255,0.46) 0%,rgba(255,255,255,0.46) 1%,rgba(153,153,153,0.61) 50%,rgba(0,0,0,0.77) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, rgba(255,255,255,0.46) 0%,rgba(255,255,255,0.46) 1%,rgba(153,153,153,0.61) 50%,rgba(0,0,0,0.77) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#75ffffff', endColorstr='#c4000000',GradientType=0 ); /* IE6-9 */
+
+}
+.profile-page-title .title-1 {
+	margin-left: 200px;
+	font-size: 25px;
+	z-index: 5;
+}
+.profile-links {
+	width: calc(100% - 200px);
+	position: absolute;
+	left: 200px;
+	bottom: 3px;
+}
+.profile-menu {
+	font-size: 14px;
+	text-transform: uppercase;
+}
+.seller-ads {
+	margin-top: 5px;
+}
+@media only screen and (max-width : 480px){
+	.profile-header-wrap {
+		border: #B31E21 solid 1px;
+		height: 205px;
+		position: relative;
+		margin-bottom: 10px;
+	}
+	.profile-title {
+		display: none;
+	}
+	
+	.profile-links {
+		width: 100%;
+		bottom: 3px;
+		top: 205px;
+		left: 0;
+		
+	}
+	.content-box {
+		margin-top: 50px;
+		clear: both
+	}
+}
+.content-box {
+	clear: both;
+}
+.sp-ads {
+	margin-bottom: 15px;
+}
+.panel-default.certified .panel-heading {
+	color: #3C8B05;
+	font-weight: 500;
+	font-size: 16px;
+}
+.subscriber-form .btn {
+	color: #ffffff;
+}
