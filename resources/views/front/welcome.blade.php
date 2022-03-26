@@ -7,9 +7,11 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
 
-  <link rel="stylesheet" type="text/css" href="{{ asset('assets/slick/slick.css')}}"/>
+  {{-- <link rel="stylesheet" type="text/css" href="{{ asset('assets/slick/slick.css')}}"/> --}}
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" rel="stylesheet" media="all">
 
-	<link rel="stylesheet" type="text/css" href="{{ asset('assets/slick/slick-theme.css')}}"/>
+	{{-- <link rel="stylesheet" type="text/css" href="{{ asset('assets/slick/slick-theme.css')}}"/> --}}
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" rel="stylesheet" media="all">
  
 </head>
 <body>
