@@ -44,6 +44,8 @@ Route::get('/dashboard', function () {
 
 Route::get('/', [FrontController::class, 'home']);
 Route::post('/getareas', [FrontController::class, 'getareas']);
-Route::post('/getlandmarks',[FrontController::class, 'getlandmarks']);
+Route::post('/getlandmarks', [FrontController::class, 'getlandmarks']);
+Route::post('/choosecitytoshop', [FrontController::class, 'choosecitytoshop']);
+Route::get('/city/{city_name}', [FrontController::class, 'city']);
 
 require __DIR__.'/auth.php';

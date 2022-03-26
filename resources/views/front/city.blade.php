@@ -12,35 +12,6 @@
 
 
 
-  <section>
-    <div class="container">
-      <div class="row">
-          <div class="col">
-
-          </div>
-          <div class="col">
-              
-              <a href="javascript:void" data-toggle="modal" data-target="#myModal">Login/Register</a>
-            </div>
-              <div class="col">
-    
-                <select class="form-control" id="sel1">
-                  <option>Select city</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                
-                </select>
-            
-              </div>
-              <div class="col">
-                  <button>Start Shopping</button>
-              </div>
-          </div>
-      </div>
-    </div>
-  </section>
-
   <section class="mt-3">
       <div class="container">
           <div class="row">
@@ -248,7 +219,7 @@ Logo
 
 
 <!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
+<div id="authModal" class="modal fade" role="dialog">
 	<div class="modal-dialog">
   
 	  <!-- Modal content-->
@@ -403,6 +374,43 @@ Logo
 	</div>
   </div>
 
+  <!-- The Modal -->
+<div class="modal" id="startShoppingModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Modal Heading</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="row ">
+					<label for="" class="col-12 text-center ">
+						<h3  class="text-white">Welcome To Awoofmart NG</h3> 
+						<h5  class="text-white">Please</h5><h5 class="text-white">Choose City To Start Shooping</h5></label>
+						<div class="col-sm-12">
+							<select name="city" id="choosecitytoshop" class="custom-select">
+								<option value="">Select one</option>
+								<?php foreach($cities as $city){ ?>
+								  <option value="<?php echo $city->fcity_name; ?>"><?php echo $city->fcity_name; ?></option>
+								<?php } ?>
+							</select>
+						</div>
+					</div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
@@ -488,6 +496,41 @@ Logo
 
 		});
 	</script>
+
+
+
+<script>
+  //Dynamic City Select
+  $('#choosecitytoshop').change(function(){
+			var city = $('#choosecitytoshop').val();
+			  //alert(city);
+			  $.ajaxSetup({
+			  	headers: {
+			  		'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+			  	}
+			  });
+			  $.ajax({
+			  	url:"{{ url('/choosecitytoshop') }}",
+			  	method:"POST",
+			  	data:{city:city},
+			  	beforeSend: function(){
+			  		//$("#citychangeproc").show();
+			  	},
+			  	success:function(data)
+			  	{
+						//alert(data.url);
+						  window.location=data.url;
+						//$('#city_change').load();
+					},
+					error: function(xhr, textStatus, errorThrown) {
+					   //code to execute
+					    //alert(xhr.responseText);
+					//$('#request-result2').html('Error occurred! Try again').delay(4000).fadeOut();
+				},
+			});
+
+			});
+</script>
 
 
 	
