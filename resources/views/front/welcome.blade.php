@@ -6,6 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+
+  <link rel="stylesheet" type="text/css" href="{{ asset('assets/slick/slick.css')}}"/>
+
+	<link rel="stylesheet" type="text/css" href="{{ asset('assets/slick/slick-theme.css')}}"/>
  
 </head>
 <body>
@@ -116,11 +120,66 @@ Logo
             </div>
         </div>
 
-        <div class="row">
-            <div class="col">
-                Slider
-            </div>
-        </div>
+        {{-- <div class="row">
+            <div class="col"> --}}
+              <div class="featured-products">
+                <div>
+                  <div class="card">
+                    <div class="card-body">
+                      <h4 class="card-title">Card title</h4>
+                      <p class="card-text">Some example text. Some example text.</p>
+                      <a href="#" class="card-link">Card link</a>
+                      <a href="#" class="card-link">Another link</a>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div class="card">
+                    <div class="card-body">
+                      <h4 class="card-title">Card title</h4>
+                      <p class="card-text">Some example text. Some example text.</p>
+                      <a href="#" class="card-link">Card link</a>
+                      <a href="#" class="card-link">Another link</a>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div class="card">
+                    <div class="card-body">
+                      <h4 class="card-title">Card title</h4>
+                      <p class="card-text">Some example text. Some example text.</p>
+                      <a href="#" class="card-link">Card link</a>
+                      <a href="#" class="card-link">Another link</a>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="card">
+                    <div class="card-body">
+                      <h4 class="card-title">Card title</h4>
+                      <p class="card-text">Some example text. Some example text.</p>
+                      <a href="#" class="card-link">Card link</a>
+                      <a href="#" class="card-link">Another link</a>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="card">
+                    <div class="card-body">
+                      <h4 class="card-title">Card title</h4>
+                      <p class="card-text">Some example text. Some example text.</p>
+                      <a href="#" class="card-link">Card link</a>
+                      <a href="#" class="card-link">Another link</a>
+                    </div>
+                  </div>
+                </div>
+                
+                
+              </div>
+            {{-- </div>
+        </div> --}}
     </div>
 </section>
 
@@ -433,6 +492,7 @@ Logo
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="text/javascript" src="{{ asset('assets/slick/slick.min.js') }}"></script>
 
 
   <script>
@@ -550,7 +610,18 @@ Logo
 			});
 </script>
 
-
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.featured-products').slick({
+      //dots: true,
+      autoplay: true,
+      autoplaySpeed: 2000,
+      infinite: true,
+      slidesToShow: 4,
+      slidesToScroll: 4
+    });
+  });
+</script>
 	
 
 </body>
