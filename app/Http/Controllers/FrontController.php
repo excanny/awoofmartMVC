@@ -11,6 +11,7 @@ class FrontController extends Controller
     public function home()
     {
        $cities = DB::table('tcities')->get();
+       //return view('front.welcome', compact('cities'));
        return view('front.welcome', compact('cities'));
     }
 
@@ -61,11 +62,8 @@ class FrontController extends Controller
 
     public function city()
     {
-        if(!Session::get('city'))
-        {
-            return redirect('/');
-        }
-
+        //if(!Session::get('city')) return redirect('/');
+         
         $cities = DB::table('tcities')->get();
         return view('front.city', compact('cities'));
         
