@@ -11,7 +11,6 @@ class FrontController extends Controller
     public function home()
     {
        $cities = DB::table('tcities')->get();
-       //return view('front.welcome', compact('cities'));
        return view('front.welcome', compact('cities'));
     }
 

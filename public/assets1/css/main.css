@@ -2567,10 +2567,9 @@ input.qty-val {
 }
 
 .card-login {
-  padding: 50px;
+  /* padding: 50px; */
   border-radius: 15px;
-  border: 1px solid #ececec;
-  margin-left: 30px;
+
 }
 
 .card-login .social-login {
@@ -3366,7 +3365,7 @@ table .product-thumbnail img {
 
 /*modal*/
 .custom-modal .modal-dialog {
-  max-width: 888px !important;
+  max-width: 500px !important;
   border-radius: 0px;
   overflow: hidden;
   border: 0;
@@ -3616,6 +3615,11 @@ table .product-thumbnail img {
 .deal .product-title {
   max-width: 57%;
   margin-bottom: 20px;
+  font-size: 45px;
+  line-height: 1.23;
+}
+
+.deal .product-title2 {
   font-size: 45px;
   line-height: 1.23;
 }
@@ -9588,7 +9592,7 @@ footer .hotline img {
 }
 
 .newsletter .newsletter-inner {
-  background: url(../images/banner-10.png) no-repeat center;
+  background: url(https://dummyimage.com/2376x574/D8F1E5/fff.png) no-repeat center;
   background-size: cover;
   padding: 84px 78px;
   clear: both;
@@ -12409,4 +12413,23 @@ footer .hotline img {
 
 .btn-shop-now{
   background: #800020;
+}
+
+.btn-shop-now:hover{
+  background: green;
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05);
+  -webkit-transition: -webkit-transform .5s;
+  transition: -webkit-transform .5s;
+  transition: transform .5s;
+  transition: transform .5s, -webkit-transform .5s;
+  transition: transform .5s,-webkit-transform .5s;
+}
+
+.btn-menu-cat{
+  background: #800020;
+}
+
+.cursor{
+  cursor: pointer;
 }
