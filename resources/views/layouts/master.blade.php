@@ -261,16 +261,13 @@
                              
                                    
                                 <div class="header-action-icon-2">
-                                    <a href="">
-                                        {{-- <img class="svgInject" alt="AwoofMart" src="{{asset('assets1/fonts/icon-user.svg')}}"> --}}
-                                        <i class="fi-rs-user"></i>
-                                    </a>
-                                    <a href="javascript:void"><span class="lable ml-0">Account</span></a>
+                                   
+                                   @auth  <i class="pro-count blue fi-rs-user-add text-success"></i> <a href="javascript:void"><span class="lable ml-0">Hi, <span class="text-dark"> {{ucfirst(strtolower(auth()->user()->first_name))}}</span> </span></a> @endauth
+                                   @guest  <a href="javascript:void"> <i class="fi-rs-user"></i> </a> <a href="javascript:void"><span class="lable ml-0">Account</span></a> @endguest
                                     <div class="cart-dropdown-wrap cart-dropdown-hm2 account-dropdown">
                                         <ul>
                                             @guest
                                                 
-                                            
                                             <li>
                                                 <a href="/login"><i class="fi fi-rs-sign-in mr-10"></i>Login</a>
                                             </li>
@@ -283,7 +280,7 @@
                                             @auth
                                                
                                                 <li>
-                                                    <a href=""><i class="fi fi-rs-location-alt mr-10"></i>Order Tracking</a>
+                                                    <a href=""><i class="fi fi-rs-location-alt mr-10"></i>Orders</a>
                                                 </li>
                                             @endauth
                                             

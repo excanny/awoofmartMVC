@@ -25,7 +25,7 @@
             <div class="row">
                 <div class="col-xl-8 col-lg-10 col-md-12 m-auto">
                     <div class="row">
-                        <div class="col-lg-6 col-md-8">
+                        <div class="col-lg-12 col-md-12">
                             <div class="login_wrap widget-taber-content background-white">
                                 <div class="padding_eight_all bg-white">
                                     <div class="heading_s1">
@@ -37,63 +37,97 @@
 
                                     <form method="POST" action="{{ route('register') }}">
                                         @csrf
-                                        <div class="form-group">
-                                            <input type="text" name="firstname" placeholder="First Name" :value="old('firstname')" required autofocus/>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" required="" name="lastname" placeholder="Last Name" :value="old('lastname')"/>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" required="" name="email" placeholder="Email" :value="old('email')"/>
-                                        </div>
-                                        <div class="form-group">
-                                            <input required="" type="number" name="phone" placeholder="Phone" :value="old('phone')"/>
-                                        </div>
-                                    
-                                        
-                                        <div class="login_footer form-group mb-50">
-                                            <div class="chek-form">
-                                                <div class="custome-checkbox">
-                                                    <input class="form-check-input" type="checkbox" name="checkbox" id="exampleCheckbox12" value="" />
-                                                    <label class="form-check-label" for="exampleCheckbox12"><span>I agree to terms &amp; Policy.</span></label>
+
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <input type="text" name="firstname" placeholder="First Name" :value="old('firstname')" required autofocus/>
                                                 </div>
                                             </div>
-                                            
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <input type="text" required="" name="lastname" placeholder="Last Name" :value="old('lastname')"/>
+                                                </div>
+                                            </div>
                                         </div>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 pr-10 d-none d-lg-block">
-                            <div class="card-login mt-95">
-                                <div class="form-group">
-                                    <input type="text" required="" name="address" placeholder="Address" :value="old('address')" />
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <select name="area" id="area" class="form-control">
-                                                <option value="">Select area</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <select name="landmark" class="form-control">
-                                                <option value="">Select landmark</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
 
-                                <div class="form-group">
-                                    <input required="" type="password" name="password" placeholder="Password" />
-                                </div>
-                                <div class="form-group">
-                                    <input required="" type="password" name="password_confirmation" placeholder="Confirm password" />
-                                </div>
-                                <div class="form-group mb-30">
-                                    <button type="submit" class="btn btn-fill-out btn-block hover-up font-weight-bold float-end">Submit</button>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <input type="text" required="" name="email" placeholder="Email" :value="old('email')"/>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <input required="" type="number" name="phone" placeholder="Phone" :value="old('phone')"/>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <textarea  rows="1" required="" name="address" placeholder="Address" :value="old('address')"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <select name="city" id="city" class="form-control" required>
+                                                        <option value="">Select area</option>
+                                                        <option value="Allllggg">Allllggg</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <select name="area" id="area" class="form-control" required>
+                                                        <option value="">Select area</option>
+                                                        <option value="Allllggg">Allllggg</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <select name="landmark" class="form-control" required>
+                                                        <option value="">Select landmark</option>
+                                                        <option value="dddfq">dddfq</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <input required="" type="password" name="password" placeholder="Password" />
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-group">
+                                                    <input required="" type="password" name="password_confirmation" placeholder="Confirm password" />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="chek-form">
+                                                    <div class="custome-checkbox">
+                                                        <input class="form-check-input" type="checkbox" name="checkbox" id="exampleCheckbox12" value="" />
+                                                        <label class="form-check-label" for="exampleCheckbox12"><span>I agree to terms &amp; Policy.</span></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                           
+                                        </div>
+
+                                        <div class="form-group mb-30">
+                                            <button type="submit" class="btn btn-fill-out btn-block hover-up font-weight-bold float-end">Submit</button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
