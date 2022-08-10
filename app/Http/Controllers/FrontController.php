@@ -59,12 +59,13 @@ class FrontController extends Controller
       return response()->json(['url'=>url('/city/'. strtolower($city))]);
     }
 
-    public function city()
+    public function city($city_name)
     {
         //if(!Session::get('city')) return redirect('/');
          
         $cities = DB::table('tcities')->get();
-        return view('front.city', compact('cities'));
+        $popular_products = DB::table('tproducts')->where('fmerchant_city', $city_name)->limit(10)->orderBy('fviews', 'desc')->get();
+        return view('front.city', compact('cities', 'popular_products'));
         
     }   
 
