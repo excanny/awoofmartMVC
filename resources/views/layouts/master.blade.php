@@ -17,6 +17,7 @@
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{asset('assets1/css/animate.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets1/css/main.css')}}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet"/>
 </head>
 
 <body>
@@ -201,13 +202,6 @@
   
                                 <div class="header-action-icon-2">
                                     <a href="">
-                                        <img class="svgInject" alt="AwoofMart" src="{{asset('assets1/fonts/icon-compare.svg')}}">
-                                        <span class="pro-count blue">3</span>
-                                    </a>
-                                    <a href=""><span class="lable ml-0">Compare</span></a>
-                                </div>
-                                <div class="header-action-icon-2">
-                                    <a href="">
                                         <img class="svgInject" alt="AwoofMart" src="{{asset('assets1/fonts/icon-heart.svg')}}">
                                         <span class="pro-count blue">6</span>
                                     </a>
@@ -216,50 +210,25 @@
                                 <div class="header-action-icon-2">
                                     <a class="mini-cart-icon" href="">
                                         <img alt="AwoofMart" src="{{asset('assets1/fonts/icon-cart.svg')}}">
-                                        <span class="pro-count blue">2</span>
+                                        <span class="pro-count blue total_cart_item"></span>
                                     </a>
                                     <a href=""><span class="lable">Cart</span></a>
                                     <div class="cart-dropdown-wrap cart-dropdown-hm2">
-                                        <ul>
-                                            <li>
-                                                <div class="shopping-cart-img">
-                                                    <a href=""><img alt="AwoofMart" src="{{asset('assets1/images/thumbnail-3.jpg')}}"></a>
-                                                </div>
-                                                <div class="shopping-cart-title">
-                                                    <h4><a href="">Daisy Casual Bag</a></h4>
-                                                    <h4><span>1 × </span>₦800.00</h4>
-                                                </div>
-                                                <div class="shopping-cart-delete">
-                                                    <a href="#"><i class="fi-rs-cross-small"></i></a>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="shopping-cart-img">
-                                                    <a href=""><img alt="AwoofMart" src="{{asset('assets1/images/thumbnail-2.jpg')}}"></a>
-                                                </div>
-                                                <div class="shopping-cart-title">
-                                                    <h4><a href="">Corduroy Shirts</a></h4>
-                                                    <h4><span>1 × </span>₦3200.00</h4>
-                                                </div>
-                                                <div class="shopping-cart-delete">
-                                                    <a href="#"><i class="fi-rs-cross-small"></i></a>
-                                                </div>
-                                            </li>
+                                        <ul id="cart_details" style="overflow-y:scroll; height:200px">
+                                           
                                         </ul>
                                         <div class="shopping-cart-footer">
                                             <div class="shopping-cart-total">
-                                                <h4>Total <span>₦4000.00</span></h4>
+                                                <h4>Total <span class="total_price"></span></h4>
                                             </div>
                                             <div class="shopping-cart-button">
-                                                <a href="" class="outline">View cart</a>
+                                                <a href="/cart" class="outline">View cart</a>
                                                 <a href="">Checkout</a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
-                             
-                                   
                                 <div class="header-action-icon-2">
                                    
                                    @auth  <i class="pro-count blue fi-rs-user-add text-success"></i> <a href="javascript:void"><span class="lable ml-0">Hi, <span class="text-dark"> {{ucfirst(strtolower(auth()->user()->first_name))}}</span> </span></a> @endauth
@@ -268,12 +237,12 @@
                                         <ul>
                                             @guest
                                                 
-                                            <li>
-                                                <a href="/login"><i class="fi fi-rs-sign-in mr-10"></i>Login</a>
-                                            </li>
-                                            <li>
-                                                <a href="/register"><i class="fi fi-rs-sign-out mr-10"></i>Register</a>
-                                            </li>
+                                                <li>
+                                                    <a href="/login"><i class="fi fi-rs-sign-in mr-10"></i>Login</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/register"><i class="fi fi-rs-sign-out mr-10"></i>Register</a>
+                                                </li>
 
                                             @endguest
 
@@ -821,11 +790,11 @@
                         <div class="deal-bottom">
         
                             <select class="form-select" id="choosecitytoshop">
-                                <option>Select one</option>
-                                <option value="Ilorin">Ilorin</option>
-                                <option value="Ogbomoso">Ogbomoso</option>
-                                <option value="Osogbo">Osogbo</option>
-                              </select>
+                                    <option>Select one</option>
+                                @foreach ($cities as $city)
+                                    <option value="{{$city->fcity_name}}">{{$city->fcity_name}}</option> 
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -855,6 +824,7 @@
     <!-- Template  JS -->
     <script src="{{asset('assets1/js/main.js')}}"></script>
     <script src="{{asset('assets1/js/shop.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script>
         //Dynamic City Select
@@ -887,6 +857,87 @@
                   });
       
                   });
+      </script>
+
+      <script>
+        $('body').on('click', '.addtocart', function (){
+		      //e.preventDefault(); 
+			  var product_id = $(this).data('product_id');
+			  //alert(product_id);
+			
+				$.ajaxSetup({
+				headers: {
+					'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+				}
+				});
+				$.ajax({
+					url:"{{ url('/addtocart') }}",
+					method:"POST",
+					data: {product_id: product_id},
+					success:function(data)
+					{
+						//console.log(data);
+                        //alert(data);
+						
+						// load_cart_data();
+						// load_wishlist_data();
+						// $('#cart_extra').show();
+                        toastr.options.positionClass = 'toast-bottom-right';
+						toastr.success('<p class="text-white">Successfully Added to Cart</p>', {timeOut: 0})
+			
+					},
+					error: function(xhr, textStatus, errorThrown) {
+					   //code to execute
+					    alert(xhr.responseText);
+					//$('#request-result2').html('Error occurred! Try again').delay(4000).fadeOut();
+					},
+				});
+				
+			return false;
+				
+		});
+
+      </script>
+
+      <script>
+        function load_cart_data()
+        {
+                const formatter = new Intl.NumberFormat('en-US', {
+                        minimumFractionDigits: 2
+                });
+
+                $.ajaxSetup({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        }
+                });
+                    $.ajax({
+                    url:"{{ url('/cartdetails') }}",
+                    method:"POST",
+                    dataType:"json",
+                    success:function(data)
+                    {
+                        //alert(data.total_price);
+                        $('#cart_details').html(data.cart_details);
+                        $('.total_price').text(formatter.format(data.total_price));
+                        // $('#totalprice').val(data.total_price);
+                        // $('#packaging_cost_total').val(data.packaging_cost_total);
+                        $('.total_cart_item').text(data.total_cart_item);
+                        // if(data.total_item == '0')
+                        // {
+                        //     $('#cart_extra').hide();
+                        // }
+                    },
+                    error: function(xhr, textStatus, errorThrown) {
+                        //code to execute
+                        //alert(xhr.responseText);
+                        //$('.badge').text(xhr.responseText));
+                    //$('#request-result2').html('Error occurred! Try again').delay(4000).fadeOut();
+                    },
+                });  
+            }
+
+        load_cart_data();
       </script>
 </body>
 

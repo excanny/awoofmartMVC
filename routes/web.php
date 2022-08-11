@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontController;
+use App\Http\Controllers\CartController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 
@@ -47,5 +48,11 @@ Route::post('/getareas', [FrontController::class, 'getareas']);
 Route::post('/getlandmarks', [FrontController::class, 'getlandmarks']);
 Route::post('/choosecitytoshop', [FrontController::class, 'choosecitytoshop']);
 Route::get('/city/{city_name}', [FrontController::class, 'city']);
+
+Route::post('/addtocart', [CartController::class, 'AddToCart']);
+Route::post('/removefromcart', [CartController::class, 'removeFromCart']);
+Route::get('/updatecart/{id}', [CartController::class, 'UpdateCart']);
+Route::any('/cartdetails', [CartController::class, 'CartDetails']);
+Route::get('/cart', [FrontController::class, 'Cart']);
 
 require __DIR__.'/auth.php';
