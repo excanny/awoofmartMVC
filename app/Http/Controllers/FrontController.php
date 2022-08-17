@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use App\Models\Cart;
 use App\Models\Wishlist;
+use App\Models\Category;
 
 class FrontController extends Controller
 {
@@ -32,14 +33,16 @@ class FrontController extends Controller
     public function city($city_name)
     {
         //if(!Session::get('city')) return redirect('/');
-        $city_exists = DB::table('tcities')->where('fcity_name', ucfirst($city_name))->first();
-        if(is_null($city_exists)) return view('front.404');
-         
         $cities = DB::table('tcities')->get();
+        $city_exists = DB::table('tcities')->where('fcity_name', ucfirst($city_name))->first();
+        if(is_null($city_exists)) return view('front.404', compact('cities'));
+
+        $categories = Category::with('children')->where('fparent_id', 0)->orderBy('fcategory_name','asc')->get();
         $popular_products = DB::table('tproducts')->where('fmerchant_city', $city_name)->limit(10)->orderBy('fviews', 'desc')->get();
         $recent_products = DB::table('tproducts')->where('fmerchant_city', $city_name)->limit(3)->orderBy('created_at', 'desc')->get();
         $top_selling = DB::table('tsales_details')->select('fproduct_id', DB::raw('COUNT(fproduct_id) as count'))->groupBy('fproduct_id')->orderBy('count', 'desc')->limit(3)->get();
-        return view('front.city', compact('cities', 'popular_products', 'recent_products', 'top_selling'));
+        return view('front.city', compact('cities', 'categories', 'popular_products', 'recent_products', 'top_selling'));
+        //return $categories;
     } 
 
     public function Cart()

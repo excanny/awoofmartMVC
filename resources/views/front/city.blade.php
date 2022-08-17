@@ -3,21 +3,34 @@
 @section('menu-list')
 
     <li class="position-static">
-        <a href="#" class="btn btn-menu-cat">Mega menu <i class="fi-rs-angle-down"></i></a>
+        <a href="javascript:void" class="btn btn-menu-cat">Categories <i class="fi-rs-angle-down"></i></a>
         <ul class="mega-menu">
+            @php
+            $i=1;
+            @endphp
+            @foreach($categories as $category)
             <li class="sub-mega-menu sub-mega-menu-width-22">
-                <a class="menu-title" href="#">Fruit & Vegetables</a>
+                <a class="menu-title" href="javascript:void">{{$category->fcategory_name}}</a>
+                @if(count($category->children) > 0)
                 <ul>
-                    <li><a href="">Meat & Poultry</a></li>
-                    <li><a href="">Fresh Vegetables</a></li>
-                    <li><a href="">Herbs & Seasonings</a></li>
-                    <li><a href="">Cuts & Sprouts</a></li>
-                    <li><a href="">Exotic Fruits & Veggies</a></li>
-                    <li><a href="">Packaged Produce</a></li>
-                </ul>
-            </li>
-            <li class="sub-mega-menu sub-mega-menu-width-22">
-                <a class="menu-title" href="#">Breakfast & Dairy</a>
+                    @foreach($category->children as $subcat)
+                        <li class="dropdown">
+                            <a href="" data-bs-toggle="dropdown">{{$subcat->fcategory_name}}</a>
+                            @if(count($subcat->children) > 0)
+                              <ul class="dropdown-menu">
+                                @foreach($subcat->children as $childcat)
+                                    <li><a href="" class="dropdown-item">{{$childcat->fcategory_name}}</a></li>
+                                @endforeach
+                              </ul>
+                            @endif
+                        </li>
+                    @endforeach
+                </ul>             
+                @endif
+            </li>     
+            @endforeach
+            {{-- <li class="sub-mega-menu sub-mega-menu-width-22">
+                <a class="menu-title" href="javascript:void">Breakfast & Dairy</a>
                 <ul>
                     <li><a href="">Milk & Flavoured Milk</a></li>
                     <li><a href="">Butter and Margarine</a></li>
@@ -28,7 +41,7 @@
                 </ul>
             </li>
             <li class="sub-mega-menu sub-mega-menu-width-22">
-                <a class="menu-title" href="#">Meat & Seafood</a>
+                <a class="menu-title" href="javascript:void">Meat & Seafood</a>
                 <ul>
                     <li><a href="">Breakfast Sausage</a></li>
                     <li><a href="">Dinner Sausage</a></li>
@@ -61,7 +74,7 @@
                         </h3>
                     </div>
                 </div>
-            </li>
+            </li> --}}
         </ul>
     </li>
     <li class="hot-deals"><img src="{{asset('assets1/fonts/icon-hot-white.svg')}}" alt="hot deals"><a href="">Deals</a></li>
@@ -70,11 +83,11 @@
         
     </li>
     <li>
-        <a href="">About</a>
+        <a href="/about">About</a>
     </li>
     
     <li>
-        <a href="" class="text-dark text-italicize">City:  {{ ucfirst(request()->segment(2)) }}</a>  <small class="badge bg-secondary cursor" data-bs-toggle="modal" data-bs-target="#cityModal">change city</small> 
+        <a href="javascript:void" class="text-dark text-italicize">City:  {{ ucfirst(request()->segment(2)) }}</a>  <small class="badge bg-secondary cursor" data-bs-toggle="modal" data-bs-target="#cityModal">change city</small> 
     </li>
 
                        

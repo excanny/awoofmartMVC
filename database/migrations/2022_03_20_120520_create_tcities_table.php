@@ -14,7 +14,7 @@ class CreateTcitiesTable extends Migration
     public function up()
     {
         Schema::create('tcities', function (Blueprint $table) {
-            $table->id('frecno');
+            $table->id();
             $table->string('fcity_name', 100);
             $table->string('fcity_description', 250);
             $table->timestamps();

@@ -50,9 +50,12 @@ Route::post('/choosecitytoshop', [FrontController::class, 'choosecitytoshop']);
 Route::get('/city/{city_name}', [FrontController::class, 'city']);
 
 Route::post('/addtocart', [CartController::class, 'AddToCart']);
-Route::post('/removefromcart', [CartController::class, 'removeFromCart']);
-Route::get('/updatecart/{id}', [CartController::class, 'UpdateCart']);
+Route::post('/removefromcart', [CartController::class, 'RemoveFromCart']);
+Route::post('/clearcart', [CartController::class, 'ClearCart']);
 Route::any('/cartdetails', [CartController::class, 'CartDetails']);
 Route::get('/cart', [FrontController::class, 'Cart']);
+Route::post('/updatecartquantity', [CartController::class, 'UpdateCartQuantity']);
+Route::post('/loadchangecartquantitydetails', [CartController::class, 'LoadChangeCartQuantityDetails']);
+
 
 require __DIR__.'/auth.php';

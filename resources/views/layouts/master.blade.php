@@ -621,7 +621,7 @@
                                 <img src="{{asset('assets1/fonts/icon-3.svg')}}" alt>
                             </div>
                             <div class="banner-text">
-                                <h3 class="icon-box-title">Great daily deal</h3>
+                                <h3 class="icon-box-title">Great deals</h3>
                                 <p>When you sign up</p>
                             </div>
                         </div>
@@ -802,7 +802,8 @@
         </div>
     </div>
     <!-- Vendor JS-->
-    <script data-cfasync="false" src="js/email-decode.min.js')}}"></script><script src="{{asset('assets1/js/modernizr-3.6.0.min.js')}}"></script>
+    <script data-cfasync="false" src="js/email-decode.min.js')}}"></script>
+    <script src="{{asset('assets1/js/modernizr-3.6.0.min.js')}}"></script>
     <script src="{{asset('assets1/js/jquery-3.6.0.min.js')}}"></script>
     <script src="{{asset('assets1/js/jquery-migrate-3.3.0.min.js')}}"></script>
     <script src="{{asset('assets1/js/bootstrap.bundle.min.js')}}"></script>
@@ -876,12 +877,7 @@
 					data: {product_id: product_id},
 					success:function(data)
 					{
-						//console.log(data);
-                        //alert(data);
-						
-						// load_cart_data();
-						// load_wishlist_data();
-						// $('#cart_extra').show();
+						console.log(data);
                         toastr.options.positionClass = 'toast-bottom-right';
 						toastr.success('<p class="text-white">Successfully Added to Cart</p>', {timeOut: 0})
 			
@@ -898,6 +894,82 @@
 		});
 
       </script>
+      
+      <script>
+        $('body').on('click', '.removefromcart', function (){
+		      //e.preventDefault(); 
+			  var product_id = $(this).data('product_id');
+			  //alert(product_id);
+			
+				$.ajaxSetup({
+				headers: {
+					'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+				}
+				});
+				$.ajax({
+					url:"{{ url('/removefromcart') }}",
+					method:"POST",
+					data: {product_id: product_id},
+					success:function(data)
+					{
+						//console.log(data);
+                        //alert(data);
+						load_cart_data();
+						load_cart_quantity_change_details();
+                        
+                        toastr.options.positionClass = 'toast-bottom-right';
+						toastr.success('<p class="text-white">Successfully Removed From Cart</p>', {timeOut: 0})
+			
+					},
+					error: function(xhr, textStatus, errorThrown) {
+					   //code to execute
+					    alert(xhr.responseText);
+					//$('#request-result2').html('Error occurred! Try again').delay(4000).fadeOut();
+					},
+				});
+				
+			return false;
+				
+		});
+
+      </script>
+
+<script>
+    $('body').on('click', '.clearcart', function (){
+    
+            $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+            });
+            $.ajax({
+                url:"{{ url('/clearcart') }}",
+                method:"POST",
+                    beforeSend: function(){
+						return confirm("Are you sure you want to clear your cart?")
+					},
+                success:function(data)
+                {
+                    //console.log(data);
+                    //alert(data);
+                    
+                    load_cart_quantity_change_details();
+                    toastr.options.positionClass = 'toast-bottom-right';
+                    toastr.success('<p class="text-white">Cart successfully cleared</p>', {timeOut: 0})
+        
+                },
+                error: function(xhr, textStatus, errorThrown) {
+                   //code to execute
+                    alert(xhr.responseText);
+                //$('#request-result2').html('Error occurred! Try again').delay(4000).fadeOut();
+                },
+            });
+            
+        return false;
+            
+    });
+
+  </script>
 
       <script>
         function load_cart_data()
@@ -919,7 +991,7 @@
                     {
                         //alert(data.total_price);
                         $('#cart_details').html(data.cart_details);
-                        $('.total_price').text(formatter.format(data.total_price));
+                        $('.total_price').text('₦'+formatter.format(data.total_price));
                         // $('#totalprice').val(data.total_price);
                         // $('#packaging_cost_total').val(data.packaging_cost_total);
                         $('.total_cart_item').text(data.total_cart_item);
@@ -939,6 +1011,112 @@
 
         load_cart_data();
       </script>
+
+    <script type="text/javascript">
+
+            $('body').on('keyup', ':input', function(e) {
+              var product_id = $(this).data('product_id');
+              var currentVal =  parseInt($('#quantity_input').val());
+               var quantity = currentVal + 1;
+               //alert(e.target);
+            //alert(quantity);
+
+            $.ajaxSetup({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        }
+                });
+    
+            $.ajax({
+                url:"{{ url('/updatecartquantity') }}",
+                method:"POST",
+                dataType:"json",
+                data: {product_id: product_id, quantity:quantity},
+                success:function(data)
+                {
+                    //alert(data);
+                    load_cart_quantity_change_details();
+                    // toastr.success('<p class="text-white">Cart Successfully Updated </p>', {timeOut: 0})
+            
+                },
+                error: function(xhr, textStatus, errorThrown) {
+                    //code to execute
+                    alert(xhr.responseText);
+                //$('#request-result2').html('Error occurred! Try again').delay(4000).fadeOut();
+                },
+                    });
+            
+              return false;
+    
+          });
+    
+          $('body').on('mousedown', ':input', function(e) {
+              var product_id = $(this).data('product_id');
+              var currentVal =  parseInt($('#quantity_input').val());
+               var quantity = currentVal - 1;
+              // alert(e.target);
+            //alert(quantity);
+
+            $.ajaxSetup({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        }
+                });
+    
+            $.ajax({
+                url:"{{ url('/updatecartquantity') }}",
+                method:"POST",
+                dataType:"json",
+                data: {product_id: product_id, quantity:quantity},
+                success:function(data)
+                {
+                    //alert(data);
+                    load_cart_quantity_change_details();
+                    // toastr.success('<p class="text-white">Cart Successfully Updated </p>', {timeOut: 0})
+            
+                },
+                error: function(xhr, textStatus, errorThrown) {
+                    //code to execute
+                    alert(xhr.responseText);
+                //$('#request-result2').html('Error occurred! Try again').delay(4000).fadeOut();
+                },
+                    });
+            
+              return false;
+    
+          });
+    </script>
+
+<script>
+
+    function load_cart_quantity_change_details()
+      {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+          $.ajax({
+          url:"{{ url('/loadchangecartquantitydetails') }}",
+          method:"POST",
+          dataType:"json",
+          success:function(data)
+          {
+              console.log(data);
+              $('#change_cart_quantity_details').html(data.change_cart_quantity_details);
+          },
+          error: function(xhr, textStatus, errorThrown) {
+            //code to execute
+            alert(xhr.responseText);
+            //$('.badge').text(xhr.responseText));
+          //$('#request-result2').html('Error occurred! Try again').delay(4000).fadeOut();
+          },
+        });
+      }
+
+      load_cart_quantity_change_details();
+
+</script>
 </body>
 
 </html>
