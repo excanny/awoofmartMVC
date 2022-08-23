@@ -32,6 +32,7 @@ class CreateTmerchantsTable extends Migration
             $table->string('fpass_word');
             $table->string('fcheck');
             $table->string('ftoken');
+            $table->boolean('fverified')->default(0);
             $table->timestamps();
         });
     }

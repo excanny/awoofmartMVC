@@ -16,7 +16,7 @@ class CreateTproductsTable extends Migration
         Schema::create('tproducts', function (Blueprint $table) {
             $table->id();
             $table->string('fdomain_name');
-            $table->string('fmain_category_name');
+            $table->string('fparent_category_name');
             $table->string('fsub_category_name');
             $table->string('fchild_category_name');
             $table->string('fitem_name');

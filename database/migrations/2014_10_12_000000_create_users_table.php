@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('address');
             $table->string('city');
             $table->string('area');
-            $table->string('landmark');
+            $table->string('land_mark');
             $table->string('photo')->nullable();
             $table->string('cookie')->nullable();
             $table->integer('can_pay_on_delivery')->default(0);

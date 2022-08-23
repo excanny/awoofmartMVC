@@ -4,78 +4,7 @@
 
     <li class="position-static">
         <a href="javascript:void" class="btn btn-menu-cat">Categories <i class="fi-rs-angle-down"></i></a>
-        <ul class="mega-menu">
-            @php
-            $i=1;
-            @endphp
-            @foreach($categories as $category)
-            <li class="sub-mega-menu sub-mega-menu-width-22">
-                <a class="menu-title" href="javascript:void">{{$category->fcategory_name}}</a>
-                @if(count($category->children) > 0)
-                <ul>
-                    @foreach($category->children as $subcat)
-                        <li class="dropdown">
-                            <a href="" data-bs-toggle="dropdown">{{$subcat->fcategory_name}}</a>
-                            @if(count($subcat->children) > 0)
-                              <ul class="dropdown-menu">
-                                @foreach($subcat->children as $childcat)
-                                    <li><a href="" class="dropdown-item">{{$childcat->fcategory_name}}</a></li>
-                                @endforeach
-                              </ul>
-                            @endif
-                        </li>
-                    @endforeach
-                </ul>             
-                @endif
-            </li>     
-            @endforeach
-            {{-- <li class="sub-mega-menu sub-mega-menu-width-22">
-                <a class="menu-title" href="javascript:void">Breakfast & Dairy</a>
-                <ul>
-                    <li><a href="">Milk & Flavoured Milk</a></li>
-                    <li><a href="">Butter and Margarine</a></li>
-                    <li><a href="">Eggs Substitutes</a></li>
-                    <li><a href="">Marmalades</a></li>
-                    <li><a href="">Sour Cream</a></li>
-                    <li><a href="">Cheese</a></li>
-                </ul>
-            </li>
-            <li class="sub-mega-menu sub-mega-menu-width-22">
-                <a class="menu-title" href="javascript:void">Meat & Seafood</a>
-                <ul>
-                    <li><a href="">Breakfast Sausage</a></li>
-                    <li><a href="">Dinner Sausage</a></li>
-                    <li><a href="">Chicken</a></li>
-                    <li><a href="">Sliced Deli Meat</a></li>
-                    <li><a href="">Wild Caught Fillets</a></li>
-                    <li><a href="">Crab and Shellfish</a></li>
-                </ul>
-            </li>
-            <li class="sub-mega-menu sub-mega-menu-width-34">
-                <div class="menu-banner-wrap">
-                    <a href=""><img src="{{asset('assets1/images/banner-menu.png')}}" alt="AwoofMart"></a>
-                    <div class="menu-banner-content">
-                        <h4>Hot deals</h4>
-                        <h3>
-                            Don't miss<br>
-                            Trending
-                        </h3>
-                        <div class="menu-banner-price">
-                            <span class="new-price text-success">Save to 50%</span>
-                        </div>
-                        <div class="menu-banner-btn">
-                            <a href="">Shop now</a>
-                        </div>
-                    </div>
-                    <div class="menu-banner-discount">
-                        <h3>
-                            <span>25%</span>
-                            off
-                        </h3>
-                    </div>
-                </div>
-            </li> --}}
-        </ul>
+        @include('front.includes.category-menu', ['segment_number' => request()->segment(2)])
     </li>
     <li class="hot-deals"><img src="{{asset('assets1/fonts/icon-hot-white.svg')}}" alt="hot deals"><a href="">Deals</a></li>
     <li>

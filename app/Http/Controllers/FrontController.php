@@ -45,6 +45,42 @@ class FrontController extends Controller
         //return $categories;
     } 
 
+    public function ParentCategory($parentcategoryname, $city_name)
+    {
+        $cities = DB::table('tcities')->get();
+        $categories = Category::with('children')->where('fparent_id', 0)->orderBy('fcategory_name','asc')->get();
+        $subcategories = Category::where('fparent_name', $parentcategoryname)->orderBy('fcategory_name','asc')->get();
+        return view('front.parentcategory', compact('cities', 'categories', 'subcategories'));
+        //return $subcategories;
+    }
+    
+    public function SubCategory($parentcategoryname, $subcategoryname, $city_name)
+    {
+        $cities = DB::table('tcities')->get();
+        $categories = Category::with('children')->where('fparent_id', 0)->orderBy('fcategory_name','asc')->get();
+        $childcategories = Category::where('fparent_name', $subcategoryname)->orderBy('fcategory_name','asc')->get();
+        return view('front.subcategory', compact('cities', 'categories', 'childcategories'));
+        //return $subcategories;
+    } 
+
+    public function ChildCategory($parentcategoryname, $subcategoryname, $childcategoryname, $city_name)
+    {
+        $cities = DB::table('tcities')->get();
+        $categories = Category::with('children')->where('fparent_id', 0)->orderBy('fcategory_name','asc')->get();
+        $items = DB::table('titems')->where('fparent_category_name', $parentcategoryname)->where('fsub_category_name', $subcategoryname)->where('fchild_category_name', $childcategoryname)->orderBy('fitem_name','asc')->get();
+        return view('front.childcategory', compact('cities', 'categories', 'items'));
+        //return $items;
+    } 
+
+    public function Products($parentcategoryname, $subcategoryname, $childcategoryname, $city_name)
+    {
+        $cities = DB::table('tcities')->get();
+        $categories = Category::with('children')->where('fparent_id', 0)->orderBy('fcategory_name','asc')->get();
+        $items = DB::table('tproducts')->where('fparent_category_name', $parentcategoryname)->where('fsub_category_name', $subcategoryname)->where('fchild_category_name', $childcategoryname)->orderBy('fitem_name','asc')->get();
+        return view('front.childcategory', compact('cities', 'categories', 'items'));
+        //return $items;
+    } 
+
     public function Cart()
     {
       $cities = DB::table('tcities')->get();
@@ -60,9 +96,7 @@ class FrontController extends Controller
          $output .="<option value='".$area->farea_name."'>".$area->farea_name."</option>";
       
       $data = array('areas' =>  $output); 
-
       return json_encode($data);
- 
     }
 
     public function getlandmarks(Request $request)
